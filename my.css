@@ -1,0 +1,135 @@
+body {
+    background-color: red;
+}
+
+input {
+    margin: .5rem 0;
+    padding: .5rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;    
+    width: 600px;
+}
+
+.part-label {
+    width: 25%;
+    margin-right: 5px;
+}
+
+.part-input {
+    width: 30%;
+    margin-right: 10px;
+}
+
+button {
+    padding: 20px;
+    background-color: green;
+    color: white;
+}
+
+.result {
+    background-color: green;
+    font-size: 25px;
+    margin: 25px;
+    border: 1px dotted red;
+}
+
+#result-text {
+    margin: 25px 25%;
+}
+
+select {
+    margin: .5rem 0;
+    padding: .5rem 0;
+    border-radius: 4px;    
+    width: 620px; 
+}
+
+.form-div {    
+    border: 5px solid green;
+    padding: 25px 50px;
+    margin: 25px 25%;
+}
+
+.title {
+    margin: auto;
+    border : 0px;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}
+
+.title:hover {
+    color: red;
+    background-color: white;
+}
+
+.link {
+   margin: 25px 25%;
+   font-size:40px;
+   background-color: black;
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+.dropbtn {
+    background-color: blueviolet;
+    color: white;
+    padding: 16px;
+    /* margin: 25px; */
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    border: 0px;
+    padding-left: 25px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 16px;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 0px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #804242}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}

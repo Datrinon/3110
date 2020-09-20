@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="my.css">
+    </head>
+    <body id="bod">
+        <div class="title">
+            <h1>Assignment</h1>
+            <h3>Saif Alshamisi</h3>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">My Team Menu</button>
+            <div class="dropdown-content">
+            <a href="saif-assignment.html">Saif Alshamisi</a>
+            <a href="#">Dan links</a>
+            <a href="Saif-Assignment1.html">Saif-Assignment 1</a>
+            <a href="Saif-Assigment2.html">Saif-Assignment 2</a>
+            <a href="Saif-Assignment3.html">Saif-Assignment 3</a>
+            </div>
+        </div>
+
+        <div class="form-div">
+                <h2>Provide Info.</h2>
+                <div class="label">
+                    <label for="name1" class="part-label">First Name:</label> 
+                    <input type="text" class="part-input" name="fname" id="fname">
+                    
+                    <label for="part-label">Last Name:</label>
+                    <input class="part-input" name="lname" id="lname">
+                </div>                
+                
+                <div class="label">
+                    <label for="age">Age:</label>
+                </div>
+                <div class="input">
+                    <input type="number" name="age" id="age">
+                </div>
+
+                <div class="label">
+                    <label for="gender">Gender:</label>
+                </div>
+                <div class="label">
+                    <select name="gender" id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="label">
+                    <label for="email">Email:</label>
+                </div>
+                <div class="input">
+                    <input type="email" name="email" id="email">
+                </div>
+
+                <div class="label">
+                    <label for="phone">Phone Number:</label>
+                </div>
+                <div class="input">
+                    <input type="number" name="phone" id="phone">
+                </div>
+
+                <div class="label">
+                    <label for="test">Enter A Number Greater Than 10</label>
+                </div>
+                <div class="input">
+                    <input type="number" name="test" id="test">
+                </div>
+
+                <div class="submit">
+                    <button id='complete'>SUBMIT</button>
+                </div>            
+        </div>
+
+        <div id="result">                
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('complete').onclick = function ()
+            {
+              var test = document.getElementById("test").value;               
+              console.log("Test Value: "+ test);
+              //console.log("var la is of type " + typeof age); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof                              
+              wrapitup(test); //pass it the contents of the input
+                //createLink();
+            }; //end params, now use them below
+    
+            function wrapitup(x) //set a goal of outputting a whole html element with the results of your math
+            {                          
+                var dynamicDiv = document.createElement("div");//make a new div, dynamically
+                var newp = document.createElement("p");             //compose a p to put in the div
+                newp.setAttribute("id", "result-text"); //should prove that I can set the id of a new html element, via js
+
+                var age = document.getElementById("age").value;
+                var fname = document.getElementById("fname").value;
+                var lname = document.getElementById("lname").value;
+                var gender = document.getElementById("gender").value;
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+
+                console.log("First Name "+fname);
+                console.log("Last Name "+lname);
+                console.log("Age "+age);
+                console.log("Gender "+gender);
+                console.log("Email "+email);
+                console.log("Phone "+phone);
+
+                if(x<11)
+                {
+                    var newPMessage = "Try entering a Value Greater than 10 for getting the magic link!!!. You Entered "+x;//what's your message?
+                }   
+                else
+                {
+                    var newPMessage = "Great You Followed The Instruction correctly... :) You Entered "+x;//what's your message?
+                }             
+                                
+                var nodeToPaint = document.createTextNode(newPMessage);//encode in a text node, for printing
+                newp.appendChild(nodeToPaint);//put the new text element in the new paragraph
+                dynamicDiv.appendChild(newp);//append the paragraph to the new div
+                
+                //dynamicDiv.setAttribute("id", x); //should prove that I can set the id of a new html element, via js
+                
+                dynamicDiv.setAttribute("class", "result"); //should prove that I can set the id of a new html element, via js
+                var element = document.getElementById("bod");//attach the div to the body
+                element.appendChild(dynamicDiv);                
+                createLink(x);//use the name of the div we make, to help make a link in it
+            }
+            function createLink(test) //makes a hyperlink inside the new div
+            {                
+              var a = document.createElement('a');
+              var personsName = document.getElementById("fname").value; //get the link's title to use your name
+              var msg = "Hello "+personsName+"go here now ";
+              a.title = msg;
+    
+              var l = "Ok, " + personsName + ", click here to go to Page " + test;
+              var linkText = document.createTextNode(l);
+              a.appendChild(linkText); //apply the message to the anchor link
+              
+              a.setAttribute('class',"link");
+
+              if(test <= 10)
+                a.href = "Saif-Assigment2.html";
+              else
+                a.href = "#"//Dan links to his assigmnet 
+              document.body.appendChild(a); //now put the link on the page
+            }
+        </script>
+    </body>
+</html>
