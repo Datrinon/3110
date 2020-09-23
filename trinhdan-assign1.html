@@ -1,74 +1,41 @@
 <!DOCTYPE HTML>
 
 <head>
-    <link rel="icon" type="image/png" href="a1/resource/favicon.ico">
-
+    <link rel="icon" type="image/png" href="resource/favicon.ico">
+    <link href="stylesheets/my.css" rel="stylesheet">
+    <!-- Add a few appearance adjustments to personalize page-->
     <style>
-        /* Alters appearance of drop button. */
-        .dropbtn {
-            background-color: darkblue;
-            color: cyan;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            min-width: 200px;
+        body {
+            background-color: lightseagreen;
+            font-family: "Verdana", sans-serif;
         }
-
-        /* Necessary to position the dropdown content. */
-        .dropdown {
-            position: relative;
-            display: inline-block;
+        input {
+            max-width:100%;
         }
-
-        /* Dropdown content <div> . This hides it by default. */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 6.6em;
+        .output {
+            color: aliceblue;
         }
-
-        /* Alters appearance of dropdown menu links. */
-        .dropdown-content a {
-            min-width: 110%;
-            background-color: rgb(50, 50, 50);
-            color: cyan;
-            padding: 30px;
-            display: block;
-            /* block generates line breaks before and after element */
-        }
-
-        /* Alters appearance of dropdown menu links... upon hover.*/
-        .dropdown-content a:hover {
-            background-color: black;
-        }
-
-        /* shows the actual dropdown menu on hover */
-        /* alters the dropdown content's default value of none */
-        /* but only on hover of .dropdown */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
     </style>
-
     <title>
-        Dan Trinh's Phase 1 Page
+        Dan Trinh's Assignment 1
     </title>
 </head>
 
 <body>
-    <h1> Dan Trinh - CIS 3110 </h1>
+    <div class="title">
+        <h1> Dan Trinh - CIS 3110 </h1>
+        <h3> Assignment 1</h3>
+    </div>
 
     <!-- Dropdown Requirement -->
-    <div class="dropdown">
-        <button class="dropbtn"> Student Pages </button>
+    <div class="dropdown" class="form-div">
+        <button class="dropbtn"> My Team Menu </button>
         <div class="dropdown-content">
-            <a href="#" id='homepage'>Dan Trinh's Webpage</a>
-            <a href="#" id='friendpage'>Saif Alshamisi's Webpage</a>
-            <a href="apples" id='assign1'>Dan Trinh's Assignment 1</a>
-            <a href="bananas" id='assign2'>Dan Trinh's Assignment 2</a>
-            <a href="carrots" id='assign3'>Dan Trinh's Assignment 3</a>
+            <a href="trinhdan-assign1.html" id='homepage'>Dan Trinh's Webpage</a>
+            <a href="alshamisisaif-assign1.html" id='friendpage'>Saif Alshamisi's Webpage</a>
+            <a href="exercises/dan-exercise1.html" id='assign1'>Dan Trinh's Assignment 1</a>
+            <a href="exercises/dan-exercise2.html" id='assign2'>Dan Trinh's Assignment 2</a>
+            <a href="exercises/dan-exercise3.html" id='assign3'>Dan Trinh's Assignment 3</a>
         </div>
     </div>
 
@@ -76,17 +43,19 @@
     <!-- One input should ask for a numeric value, the other, just textual values. -->
     <br /><br />
 
-    <strong> Input Requirements: </strong> <br />
-    <label>Enter a number: </label><input id="numVal" name="numVal" type=text placeholder="e.g. 123">
-    <br />
-    <label for="inputs">Enter some text: </label><input id="strVal" name="strVal" type=text placeholder="e.g. abc">
-    <!-- a button, which when pressed, captures the information and prints it in the console.-->
-    <button id="processButton"> Let's go! </button>
+    <div class = "form-div">
+        <strong style="text-align: center;"> Welcome to my page! </strong> <br />
+        <label>Enter a number: </label><input id="numVal" name="numVal" type=text placeholder="e.g. 123">
+        <br />
+        <label for="inputs">Enter some text: </label><input id="strVal" name="strVal" type=text placeholder="e.g. abc">
+        <!-- a button, which when pressed, captures the information and prints it in the console.-->
+        <button id="processButton"> Let's go! </button>
 
-    <div id='outputBox'>
-        <p id='outputText'></p>
-        <p id='websiteChoice'></p>
-        <a id='assignmentLink'></a>
+        <div id='outputBox'>
+            <p class='output' id='outputText'></p>
+            <p class='output' id='websiteChoice'></p>
+            <a class='output' id='assignmentLink'></a>
+        </div>
     </div>
 
 
@@ -95,13 +64,14 @@
 
             var userNum = document.getElementById("numVal").value;
             var userStr = document.getElementById("strVal").value;
-            var assignmentDescription = "Since you entered the number " + userNum + " here..."; 
+            var assignmentChoice;
+            var assignmentTitle;
             var assignmentLink;
+            
 
             // set's div border (requirement 7) and font color (requirement 4) to different colors.
             document.getElementById('outputBox').style.border = '2px dotted #224582'; // set style to dotted blue. remove later because saif.
-            document.getElementById('outputText').style.color = '#ccaa4e';
-
+            //document.getElementById('outputText').style.color = '#ccaa4e';
 
             // print to console
             console.log(userNum);
@@ -109,23 +79,27 @@
 
             // print to HTML output
             document.getElementById('outputText').innerHTML = "You entered '" + userStr + "' " +
-                "and ''" + userNum + "'.";
+                "and '" + userNum + "'.";
 
 
             
             // get an assignment link based on the remainder of modulus operations with userNum and 3.
             if (userNum % 3 == 0) {
-                assignmentLink = document.getElementById('assign1').getAttribute('href');
+                assignmentChoice = 'assign1';
             } else if (userNum % 3 == 1) {
-                assignmentLink = document.getElementById('assign2').getAttribute('href');
+                assignmentChoice = 'assign2';
             } else {
-                assignmentLink = document.getElementById('assign3').getAttribute('href');
+                assignmentChoice = 'assign3';
             }
+            
+            assignmentLink = document.getElementById(assignmentChoice).getAttribute('href');
+            assignmentTitle = document.getElementById(assignmentChoice).textContent;
 
 
-            // set a user link based on the number they put in.
-            document.getElementById('websiteChoice').innerHTML = assignmentDescription + "<br />" 
-            + " this is your assignment link.";
+            // The code below sets the empty HTML on 54 - 58 for printing.
+            //
+            document.getElementById('websiteChoice').innerHTML = "Since you entered " + userNum + ", I'll give you: "
+                                                                + assignmentTitle + "<br />";
  
             document.getElementById('assignmentLink').setAttribute('href', assignmentLink); 
             document.getElementById('assignmentLink').innerHTML = "Click here to go the assignment";
@@ -135,22 +109,5 @@
         };
     </script>
 
-
-
 </body>
 
-<!-- Pitfalls
-Day 1.
-1. href values? To reference current directory, instead of . , spell out the name of the dir.
-2. implementing external css? use link. not rel. Meanwhile, JS imports 
-   occur with an script and src attribute.
-Day 2.
-1. Input in a form will cause the page to be refreshed when submitting. To incorporate interactivity,
-   just make a button.
-2. Then, reference the button and the appropriate handler .onclick.
-3. function () {...}; ? Unique to JS. It's a 'function declaration.' See the syntax here:
-https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function
-   Basically, JS allows you to define a function inside of an expression.
-   The onclick event calls this declared function.
-
--->

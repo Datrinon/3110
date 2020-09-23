@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: lightgoldenrodyellow;
+        }
+        form {
+            width: 500px;
+            font-family: Arial;
+        }
+        input, textarea {
+            background-color: lightgreen;
+            font-family: Comic Sans MS;
+        }
+
+    </style>
+    <title> CIS3110 In-class exercise for 09/08 </title>
+</head>
+
+<body>
+    <h1> 09/08/20 - Exercise 03: Forms</h1>
+    <form method="POST" action="exercise2.html">
+        <!-- Name -->
+        <label for="firstname"> First name: </label>
+        <input type="text" name="firstname"/>
+        <br><br>
+        <label for="lastname"> Last name: </label>
+        <input type="text" name="lastname">
+        <br><br>
+        <!-- Email   -->
+        <label for="email"> Email address: </label>
+        <input type="text" name="email">
+        <br><br>
+        <!-- Phone   -->
+        <label for="phone"> Phone: </label>
+        <input type="text" name="phone">
+        <br><br>
+        <!-- Address -->
+        <label for="address"> Address: </label>
+        <br>
+        <textarea name="address" rows="7" cols="50"
+                  placeholder="Enter address here..."></textarea>
+        <br><br>
+
+        <!-- Submit button -->
+        <input type="submit" label="Submit Form">
+    </form>
+    <br />
+    <a href="../trinhdan-assign1.html">Click Here to Go Back</a>
+
+</body>
+
+</html>
