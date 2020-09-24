@@ -5,15 +5,19 @@
     <link href="stylesheets/my.css" rel="stylesheet">
     <!-- Add a few appearance adjustments to personalize page-->
     <style>
+        
+        
         body {
-            background-color: lightseagreen;
+            background-color: #a6e3ca;
             font-family: "Verdana", sans-serif;
         }
+
         input {
-            max-width:100%;
+            max-width: 100%;
         }
+
         .output {
-            color: aliceblue;
+            color: #086dcc;
         }
     </style>
     <title>
@@ -43,11 +47,15 @@
     <!-- One input should ask for a numeric value, the other, just textual values. -->
     <br /><br />
 
-    <div class = "form-div">
+    <div class="form-div">
         <strong style="text-align: center;"> Welcome to my page! </strong> <br />
-        <label>Enter a number: </label><input id="numVal" name="numVal" type=text placeholder="e.g. 123">
+        <label for="inputs">Enter your name: </label><input id="username" name="username" type=text
+            placeholder="e.g. abc">
         <br />
-        <label for="inputs">Enter some text: </label><input id="strVal" name="strVal" type=text placeholder="e.g. abc">
+        <label>Enter a number: </label><input id="numVal" name="numVal" type=text placeholder="e.g. 123">
+        <label>Enter your favorite food: </label><input id="food" name="food" type=text placeholder="e.g. 123">
+
+
         <!-- a button, which when pressed, captures the information and prints it in the console.-->
         <button id="processButton"> Let's go! </button>
 
@@ -63,26 +71,27 @@
         document.getElementById("processButton").onclick = function outputData() {
 
             var userNum = document.getElementById("numVal").value;
-            var userStr = document.getElementById("strVal").value;
+            var userStr = document.getElementById("username").value;
+            var userFood = document.getElementById("food").value;
             var assignmentChoice;
             var assignmentTitle;
             var assignmentLink;
-            
+
 
             // set's div border (requirement 7) and font color (requirement 4) to different colors.
             document.getElementById('outputBox').style.border = '2px dotted #224582'; // set style to dotted blue. remove later because saif.
-            //document.getElementById('outputText').style.color = '#ccaa4e';
 
             // print to console
             console.log(userNum);
             console.log(userStr);
+            console.log(userFood);
 
             // print to HTML output
-            document.getElementById('outputText').innerHTML = "You entered '" + userStr + "' " +
-                "and '" + userNum + "'.";
+            document.getElementById('outputText').innerHTML = "Hello " + userStr + ", I also enjoy " + userFood + "." +
+                " Also, you made a great choice picking " + userNum + ".";
 
 
-            
+
             // get an assignment link based on the remainder of modulus operations with userNum and 3.
             if (userNum % 3 == 0) {
                 assignmentChoice = 'assign1';
@@ -91,7 +100,7 @@
             } else {
                 assignmentChoice = 'assign3';
             }
-            
+
             assignmentLink = document.getElementById(assignmentChoice).getAttribute('href');
             assignmentTitle = document.getElementById(assignmentChoice).textContent;
 
@@ -99,15 +108,14 @@
             // The code below sets the empty HTML on 54 - 58 for printing.
             //
             document.getElementById('websiteChoice').innerHTML = "Since you entered " + userNum + ", I'll give you: "
-                                                                + assignmentTitle + "<br />";
- 
-            document.getElementById('assignmentLink').setAttribute('href', assignmentLink); 
+                + assignmentTitle + "<br />";
+
+
+            document.getElementById('assignmentLink').setAttribute('href', assignmentLink);
             document.getElementById('assignmentLink').innerHTML = "Click here to go the assignment";
-            console.log(assignmentLink);            
 
 
         };
     </script>
 
 </body>
-

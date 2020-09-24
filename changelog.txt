@@ -1,0 +1,17 @@
+Saif and Dan's Assignment 1
+Changelog: v2 ; 22 sept. 2020
+Add DanPage!
+Reorganize files into directories.
+ - We have assignment1 page to contain all our assignments 
+ - We have exercises folder that contains the exercises we done in class
+ - We have a stylesheet folder to contain my.css 
+ - We have a resource folder to contain favicons for the tab headers.
+Fix links on Saif's page that were affected by reorganization. 
+Alter width rules for input and select in my.css from 600px to 100% so they scale with the div border. 
+Add return links in Dan page
+Add style block to dan page with unique customizations;
+ - Page color 
+ - Font style 
+
+Suggestions:
+for my.css, consider darkening the red background color to make it easier to read? 
